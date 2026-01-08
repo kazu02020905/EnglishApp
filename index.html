@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>English Practice</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", sans-serif;
+      display: flex;
+      height: 100vh;
+      background: #121212;
+      color: #e0e0e0;
+      overflow: hidden;
+    }
+
+    .left-panel {
+      width: 40%;
+      min-width: 200px;
+      max-width: 600px;
+      padding: 20px;
+      border-right: 4px solid #333;
+      resize: horizontal;
+      overflow: auto;
+    }
+
+    .right-panel {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      text-align: center;
+      width: 100%;
+      max-width: 650px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 8px;
+      border: 1px solid #444;
+      background: #1e1e1e;
+      color: white;
+    }
+
+    .action-btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      background: #4285f4;
+      color: white;
+      cursor: pointer;
+      margin: 10px 5px;
+      font-size: 16px;
+    }
+
+    /* 左に小さめの青枠、右に内容の横並び */
+    .row-box {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .label-box {
+      padding: 8px 12px;
+      border: 2px solid #4285f4;
+      border-radius: 8px;
+      background: #1e1e1e;
+      color: #cfcfcf;
+      white-space: nowrap;
+      font-weight: bold;
+    }
+
+    .content-box {
+      flex: 1;
+      padding: 12px;
+      background: #1e1e1e;
+      border: 1px solid #333;
+      border-radius: 8px;
+      color: #cfcfcf;
+      text-align: left;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="left-panel">
+    <h2>問題追加</h2>
+
+    <input id="q-question" placeholder="質問（必須）">
+    <input id="q-answer" placeholder="答え（必須）">
+    <input id="q-hint" placeholder="ヒント">
+    <textarea id="q-note1" placeholder="note1（例文など）"></textarea>
+    <textarea id="q-note2" placeholder="note2（補足など）"></textarea>
+
+    <button id="save-btn" class="action-btn">Save</button>
+
+    <p id="save-result"></p>
+  </div>
+
+  <div class="right-panel">
+    <div class="container">
+
+      <div id="question-box"></div>
+
+      <input id="user-answer" type="text" placeholder="Your answer" autocomplete="off">
+
+      <button id="check-btn" class="action-btn">Check</button>
+      <button id="next-btn" class="action-btn">Next Question</button>
+
+      <p id="result"></p>
+
+      <!-- Hint -->
+      <div class="row-box">
+        <div class="label-box">Hint</div>
+        <div id="hint-box" class="content-box"></div>
+      </div>
+
+      <!-- Note1 -->
+      <div class="row-box">
+        <div class="label-box">Note1</div>
+        <div id="note1-box" class="content-box"></div>
+      </div>
+
+      <!-- Note2 -->
+      <div class="row-box">
+        <div class="label-box">Note2</div>
+        <div id="note2-box" class="content-box"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
